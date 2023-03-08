@@ -1,0 +1,11 @@
+Code smell yang terdapat pada contoh di atas adalah class Animal memiliki terlalu banyak tanggung jawab. Class ini bertanggung jawab untuk mengatur informasi terkait hewan, termasuk type, sound, age, weight, isHungry, dan isSick, serta method terkait kesehatan dan pemberian makan. Semua tanggung jawab ini dapat memicu perubahan yang divergen.
+
+Untuk mengurangi code smell tersebut, tanggung jawab class Animal dapat dipecah menjadi beberapa class yang lebih spesifik. Misalnya, class HealthStatus yang hanya bertanggung jawab untuk mengatur status kesehatan hewan, dan class AnimalInfo yang bertanggung jawab untuk mengatur informasi terkait jenis, suara, usia, dan berat hewan.
+
+Refaktor.////
+
+Setelah di-refactor, class Animal hanya bertanggung jawab untuk mengatur objek AnimalInfo dan HealthStatus. Dengan demikian, perubahan terhadap class AnimalInfo dan HealthStatus tidak akan mempengaruhi class Animal. Selain itu, class Zoo hanya memiliki tanggung jawab terhadap penanganan Animal seperti memberi makan, memberikan obat dan menjaga suara hewan-hewan di dalam zoo. Sehingga, setiap kali terjadi perubahan pada atribut hewan atau kesehatan hewan, tidak diperlukan perubahan pada class Zoo.
+
+Selain itu, juga diperkenalkan beberapa metode baru pada class Zoo seperti getAverageAge dan getTotalWeight yang menghasilkan nilai rata-rata usia dan total berat dari semua hewan dalam zoo.
+
+Dalam melakukan refactoring code smell divergent change, penting untuk memastikan setiap class hanya memiliki satu alasan untuk berubah dan bertanggung jawab untuk satu tugas. Hal ini dapat memudahkan pengembangan software di masa depan dan memperbaiki kualitas code.

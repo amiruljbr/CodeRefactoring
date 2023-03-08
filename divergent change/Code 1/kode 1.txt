@@ -1,0 +1,9 @@
+Pada kode di atas, class Order memiliki tanggung jawab yang berbeda-beda, yaitu untuk mengatur daftar item, menghitung total harga, dan mengatur informasi pelanggan. Hal ini dapat menyebabkan perubahan yang berlebihan pada class Order ketika ada perubahan pada salah satu dari tanggung jawab tersebut.
+
+Untuk memperbaiki code smell ini, kita dapat memisahkan tanggung jawab Order menjadi beberapa class yang lebih spesifik, seperti Item, Customer, dan OrderCalculator.
+
+Dapat dilihat code refactor.
+
+Setelah direfactor, class Order hanya bertanggung jawab untuk mengatur order items dan informasi pelanggan. Class OrderCalculator bertanggung jawab untuk menghitung total harga order, sementara class Item dan Customer masing-masing bertanggung jawab untuk mengatur informasi terkait item dan pelanggan.
+
+Perubahan dapat dilakukan pada class Item, Customer, atau OrderCalculator tanpa mempengaruhi class Order, karena tidak ada tanggung jawab yang bersifat bergantung antara class tersebut. Hal ini membuat kode menjadi lebih modular, mudah dipelihara, dan mudah diubah pada masa depan.
